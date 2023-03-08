@@ -1,0 +1,27 @@
+.goTopHidden {
+	display: none;
+}
+
+.goTop {
+	display: block;
+}
+
+.goTop__text {
+	position: fixed;
+	border: 2px solid #ca8916;
+	border-radius: 25px;
+	background-color: #96100f;
+	box-shadow: 2px 2px 5px #96100f;
+	width: 36px;
+	height: 36px;
+	padding: 10px;
+	border-radius: 24px;
+	bottom: 5%;
+	right: 8%;
+	text-align: center;
+	line-height: 15px;
+	font-weight: 100;
+}
+.goTop__text:hover {
+	transform: scale(1.1);
+}

@@ -1,0 +1,15 @@
+.parallax {
+	background-image: url('/public/danny-gallegos-onTGVHxgRJA-unsplash.jpg');
+	position: relative;
+	z-index: -10;
+	/* Set a specific height */
+	min-height: 300px;
+	margin: unset;
+	max-width: unset;
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0.2;
+}
