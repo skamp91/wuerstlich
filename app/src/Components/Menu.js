@@ -1,25 +1,24 @@
-import './menu.css';
-import { Document, Page, pdfjs } from 'react-pdf';
-import { useState, useEffect } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf'
+import { useState, useEffect } from 'react'
 
 // pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 export default function Menu() {
-	const [numPages, setNumPages] = useState(null);
-	const [file, setFile] = useState('/speisekarte-2023.pdf');
+	const [numPages, setNumPages] = useState(null)
+	const [file, setFile] = useState('/speisekarte-2023.pdf')
 
 	const options = {
 		cMapUrl: 'cmaps/',
 		cMapPacked: true,
 		standardFontDataUrl: 'standard_fonts/',
-	};
+	}
 
 	function onDocumentLoadSuccess({ numPages }) {
-		setNumPages(numPages);
+		setNumPages(numPages)
 	}
 
 	useEffect(() => {
-		pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-	}, []);
+		pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`
+	}, [])
 	return (
 		<section id='menu' className='menu'>
 			{/* <div>
@@ -39,7 +38,7 @@ export default function Menu() {
 				</Document>
 			</div> */}
 		</section>
-	);
+	)
 }
 
 /**

@@ -1,5 +1,4 @@
-import Locations from './Locations.js';
-import './content.css';
+import Locations from './Locations.js'
 
 export default function Content() {
 	// const locations = ['Haldensleben'];
@@ -10,5 +9,5 @@ export default function Content() {
 				<Locations />
 			</section>
 		</>
-	);
+	)
 }
