@@ -3,11 +3,12 @@
 	align-items: flex-start;
 	justify-content: center;
 	height: 100vh;
+	background-color: black;
 
 	&-image {
 		width: 100%;
 		height: 100%;
-		object-fit: fill;
+		object-fit: cover;
 		overflow: hidden;
 	}
 
@@ -39,22 +40,20 @@
 		padding: 15px 20px;
 		font-size: 18px;
 		font-weight: bold;
-		border: 2px solid #ca8916;
+		border: 2px solid #ffba49;
 		border-radius: 20px;
-		background-color: #96100f;
-		color: #ca8916;
-		box-shadow: 2px 2px 5px #96100f;
+		background-color: #a72608;
+		color: #ffba49;
+		box-shadow: 2px 2px 5px #a72608;
 		cursor: pointer;
-		opacity: 0.9;
 		transition: 0.3s;
 
 		&:hover {
 			border: 2px solid #7e0c0c;
 			border-radius: 20px;
-			background-color: #ca8916;
-			color: #96100f;
-			opacity: 1;
-			transition: 0.4s;
+			background-color: #ffba49;
+			color: #a72608;
+			transition: 0.3s;
 		}
 
 		&:active {
@@ -62,10 +61,10 @@
 			width: 100%;
 			padding: 15px 20px;
 			font-weight: bold;
-			border: 2px solid #ca8916;
+			border: 2px solid #ffba49;
 			border-radius: 20px;
-			background-color: #96100f;
-			color: #ca8916;
+			background-color: #a72608;
+			color: #ffba49;
 			cursor: pointer;
 		}
 	}
@@ -77,14 +76,6 @@
 		z-index: 20;
 	}
 
-	&-overlay {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background-color: #232323;
-		opacity: 0.4;
-		z-index: 15;
-	}
 	&-logo {
 		position: relative;
 		z-index: 20;
