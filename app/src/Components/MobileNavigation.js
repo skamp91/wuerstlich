@@ -1,12 +1,15 @@
+import Link from 'next/link'
 import React from 'react'
 
 export default function MobileNavigation() {
 	const mainNavRef = React.useRef()
 	const [isOpen, setIsOpen] = React.useState(false)
+	const navLinks = ['catering', 'events', 'stores', 'news']
 
 	function handleToggle() {
 		setIsOpen(!isOpen)
 	}
+
 	return (
 		<div className='container'>
 			<button
@@ -17,15 +20,19 @@ export default function MobileNavigation() {
 			</button>
 			<nav className={`main-nav ${isOpen && 'is-open'}`} ref={mainNavRef}>
 				<ul>
-					<li>
-						<a href='#'>Catering</a>
-					</li>
-					<li>
-						<a href='#'>Events</a>
-					</li>
-					<li>
-						<a href='#'>Stores</a>
-					</li>
+					{navLinks.map((link) => {
+						return (
+							<li onClick={handleToggle}>
+								<Link
+									href={`/${
+										link === 'stores' ? 'locations' : link
+									}`}
+								>
+									{link.toUpperCase()}
+								</Link>
+							</li>
+						)
+					})}
 				</ul>
 			</nav>
 		</div>
