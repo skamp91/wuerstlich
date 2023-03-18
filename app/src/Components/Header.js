@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import useContentful from '../utils/useContentful.js'
 import Link from 'next/link'
+import React from 'react'
+import MobileNavigation from './MobileNavigation.js'
 
 export default function Header() {
 	const [headerUrl, setHeaderUrl] = useState('')
@@ -51,6 +53,7 @@ export default function Header() {
 				<img className='header-logo' alt='' src='/wuerstlich.png' />
 			</Link>
 			<p className='header-slogan'>{headerSlogan}</p>
+			<MobileNavigation />
 		</header>
 	)
 }

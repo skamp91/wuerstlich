@@ -1,0 +1,178 @@
+/* Main menu positionning */
+.container {
+	position: relative;
+	width: 100%;
+}
+.main-nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	opacity: 0;
+	z-index: -1;
+	display: none;
+	background-color: rgba(167, 38, 8, 0.7);
+}
+
+.main-nav.is-open {
+	opacity: 1;
+	z-index: 100;
+	visibility: visible;
+	display: block;
+	width: 100%;
+	animation-name: fullWidth;
+	animation-duration: 0.35s;
+}
+
+/* Yellow band effect */
+.main-nav::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: -15px;
+	background: rgba(255, 186, 73, 0.95);
+	transform-origin: 0 0;
+	transform: skew(-14deg) translateX(-120%);
+	animation-name: fullWidth;
+	animation-duration: 0.2s;
+}
+
+.main-nav.is-open::before {
+	transform: skew(-14deg) translateX(0);
+}
+
+/* Skewing effect on menu links */
+.main-nav ul {
+	display: inline-flex;
+	flex-direction: column;
+	height: 100%;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 40px;
+	transform: translateX(-18%) skew(-14deg);
+}
+
+.main-nav li {
+	display: block;
+	margin: 0.5rem 0;
+	text-align: right;
+	transform: skew(14deg);
+}
+
+/* Apparition effect on links */
+.main-nav a {
+	opacity: 0;
+	transform: translateY(-10px);
+}
+
+.main-nav.is-open a {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Decoration */
+.main-nav ul,
+.main-nav li {
+	list-style: none;
+	padding: 0;
+}
+.main-nav a {
+	display: block;
+	padding: 12px 0;
+	color: #a72608;
+	font-size: 1.4em;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* Burger Style: @see: https://codepen.io/CreativeJuiz/full/oMZNXy */
+.open-main-nav {
+	position: fixed;
+	top: 25px;
+	padding-top: 15px;
+	right: 25px;
+	z-index: 1000;
+	border: 0;
+	cursor: pointer;
+	box-shadow: 1px 1px 2px rgba(255, 186, 73, 0.3);
+	background-color: rgba(255, 186, 73, 0.4);
+	height: 40px;
+	width: 40px;
+	border-radius: 10px;
+}
+.open-main-nav:hover {
+	opacity: 0.7;
+}
+
+.open-main-nav:focus {
+	outline: none;
+}
+.burger {
+	position: relative;
+	display: block;
+	width: 28px;
+	height: 4px;
+	margin: 0 auto;
+	background: #7e0c0c;
+}
+
+.burger:after,
+.burger:before {
+	content: '';
+	display: block;
+	height: 100%;
+	background: #7e0c0c;
+}
+
+.burger:after {
+	transform: translateY(-12px) translateX(-2px) skew(-14deg);
+}
+
+.burger:before {
+	transform: translateY(-16px) skew(-10deg);
+}
+
+/* Toggle State part */
+.is-open .burger {
+	transform: skew(5deg) translateY(-8px) rotate(-45deg);
+}
+
+.is-open .burger:before {
+	transform: translateY(0px) skew(-10deg) rotate(75deg);
+}
+
+.is-open .burger:after {
+	transform: translateY(-12px) translateX(10px) skew(-14deg);
+	opacity: 0;
+}
+
+.container {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+@keyframes fullWidth {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes noWidth {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0;
+	}
+}

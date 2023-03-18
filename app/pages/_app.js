@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Header from '../src/Components/Header'
+import React from 'react'
 import '../src/reset.less'
 import '../src/Components/backToTopButton.less'
 import '../src/Components/content.less'
 import '../src/Components/header.less'
 import '../src/Components/location.less'
 import '../src/Components/menu.less'
+import '../src/Components/mobileNavigation.less'
 
 export default function MyApp({ Component, pageProps }) {
 	return (

@@ -1,6 +1,7 @@
 import Content from '../../src/Components/Content.js'
 import BackToTopButton from '../../src/Components/BackToTopButton.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
+import React from 'react'
 import useWindowSize from '../../src/utils/useWindowSize.js'
 
 const LocationsPage = () => {

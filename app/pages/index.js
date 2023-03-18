@@ -1,6 +1,7 @@
 import BackToTopButton from '../src/Components/BackToTopButton.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import useWindowSize from '../src/utils/useWindowSize.js'
+import React from 'react'
 
 const App = () => {
 	const [scrollPosition, setSrollPosition] = useState(() => 0)
