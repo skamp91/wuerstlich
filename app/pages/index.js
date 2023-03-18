@@ -2,6 +2,7 @@ import BackToTopButton from '../src/Components/BackToTopButton.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import useWindowSize from '../src/utils/useWindowSize.js'
 import React from 'react'
+import Intro from '../src/Components/Intro.js'
 
 const App = () => {
 	const [scrollPosition, setSrollPosition] = useState(() => 0)
@@ -33,6 +34,7 @@ const App = () => {
 	return (
 		<>
 			<div ref={refScrollUp}> </div>
+			<Intro></Intro>
 			<BackToTopButton showGoTop={showGoTop} scrollUp={handleScrollUp} />
 		</>
 	)

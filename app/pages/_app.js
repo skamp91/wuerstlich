@@ -8,6 +8,9 @@ import '../src/Components/header.less'
 import '../src/Components/location.less'
 import '../src/Components/menu.less'
 import '../src/Components/mobileNavigation.less'
+import '../src/Components/intro.less'
+
+import PropTypes from 'prop-types'
 
 export default function MyApp({ Component, pageProps }) {
 	return (
@@ -29,7 +32,12 @@ export default function MyApp({ Component, pageProps }) {
 				<title>Würstlich</title>
 			</Head>
 			<Header />
-			<Component {...pageProps} />;
+			<Component {...pageProps} />
 		</>
 	)
+}
+
+MyApp.PropTypes = {
+	Component: PropTypes.element.isRequired,
+	PageProps: PropTypes.element.isRequired,
 }
