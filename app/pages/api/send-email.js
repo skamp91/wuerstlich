@@ -3,13 +3,12 @@ import sgMail from '@sendgrid/mail'
 export default async function handler(req, res) {
 	if (req.method === 'POST') {
 		try {
-			const { to, from, subject, html } = req.body
+			const { to, subject, html } = req.body
 
 			sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-			console.log(from.email)
 			const msg = {
 				to,
-				from: from.email,
+				from: 'skampilein@gmail.com',
 				subject,
 				html,
 			}

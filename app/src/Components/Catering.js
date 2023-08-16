@@ -38,7 +38,6 @@ export default function Catering() {
 				},
 				body: JSON.stringify({
 					to: 'patrick.skamrahl@gmail.com',
-					from: { email }, // Replace with recipient's email address
 					subject: 'Catering Anfrage',
 					html: `
             <p>Name: ${name}</p>
