@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import useContentful from '../utils/useContentful.js'
 import Link from 'next/link'
 import React from 'react'
@@ -7,8 +8,19 @@ import MobileNavigation from './MobileNavigation.js'
 export default function Header() {
 	const [headerUrl, setHeaderUrl] = useState('')
 	const [headerSlogan, setHeaderSlogan] = useState('')
+	const splittedHeaderSlogan = headerSlogan.split('# ')
+	const router = useRouter()
 
 	const { getHeader } = useContentful()
+
+	const pageSloganMapping = {
+		'/': headerSlogan,
+		'/stores': 'Unsere Stores',
+		'/catering': 'Unser Catering',
+	}
+	const currentPath = router.pathname
+
+	const [sloganPart1, sloganPart2] = headerSlogan.split('#')
 
 	useEffect(() => {
 		getHeader().then((res) => {
@@ -42,17 +54,25 @@ export default function Header() {
 				</picture>
 			)}
 			<div className='header-buttons'>
-				<Link href='/locations' scroll={false}>
+				<Link href='/stores' scroll={false}>
 					<button className='header-button' onClick={jumpToMenu}>
 						Zu den Stores
 					</button>
 				</Link>
-				<button className='header-button'>News</button>
+				<Link href='/catering' scroll={false}>
+					<button className='header-button'>Zum Catering</button>
+				</Link>
 			</div>
-			<Link href='/'>
-				<img className='header-logo' alt='' src='/wuerstlich.png' />
-			</Link>
-			<p className='header-slogan'>{headerSlogan}</p>
+			<div className='header-slogan'>
+				{currentPath === '/' ? (
+					<>
+						<p>{sloganPart1}</p>
+						<p>{sloganPart2}</p>
+					</>
+				) : (
+					pageSloganMapping[currentPath] || headerSlogan
+				)}
+			</div>
 			<MobileNavigation />
 		</header>
 	)

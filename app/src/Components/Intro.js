@@ -1,33 +1,29 @@
 export default function Intro() {
 	return (
 		<section className='intro'>
-			<header>
-				<h1 className='intro-headline locations-headline'>
-					<span>Schlemmen wie die Fürsten bei Würstlich!</span>
-				</h1>
-				<svg
-					xmlns='http://www.w3.org/2000/svg'
-					version='1.1'
-					width='100%'
-					height='100'
-					viewBox='0 0 100 102'
-					preserveAspectRatio='none'
-					fill='#ffba49'
-				>
-					<path d='M0 0 C 50 100 80 100 100 0 Z' />
-				</svg>
-			</header>
-
+			<h1 className='intro-headline locations-headline'>
+				<span>Schlemmen wie die Fürsten bei Würstlich!</span>
+			</h1>
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				version='1.1'
+				width='100%'
+				height='100'
+				viewBox='0 0 100 102'
+				preserveAspectRatio='none'
+				fill='#ffba49'
+			>
+				<path d='M0 0 C 50 100 80 100 100 0 Z' />
+			</svg>
 			<div className='intro-container'>
-				<picture>
-					<img src='' alt='' />
+				<picture className='intro-image'>
+					<img src='./intro-image.png' alt='intro-image' />
 				</picture>
-				<div class='intro-text-wrapper'>
+				<div className='intro-text-wrapper'>
 					<h3>
 						Euch nagt der Hunger zwischendurch oder ihr m&ouml;chtet
 						zu Mittag lecker satt werden?
 					</h3>
-
 					<p>
 						Dann besucht <strong>W&Uuml;RSTLICH</strong> in
 						Magdeburg, Oschersleben oder Haldensleben.

@@ -1,10 +1,11 @@
-import Content from '../../src/Components/Content.js'
+import Locations from '../../src/Components/Stores.js'
+
 import BackToTopButton from '../../src/Components/BackToTopButton.js'
 import { useState, useEffect, useRef, useCallback } from 'react'
 import React from 'react'
 import useWindowSize from '../../src/utils/useWindowSize.js'
 
-const LocationsPage = () => {
+const StoresPage = () => {
 	const [scrollPosition, setSrollPosition] = useState(() => 0)
 	const [showGoTop, setShowGoTop] = useState('goTopHidden')
 
@@ -33,25 +34,14 @@ const LocationsPage = () => {
 
 	return (
 		<>
-			<div ref={refScrollUp}> </div>
-			<Content />
+			<div ref={refScrollUp} />
+			<section className='content'>
+				<Locations />
+			</section>
+
 			<BackToTopButton showGoTop={showGoTop} scrollUp={handleScrollUp} />
 		</>
 	)
 }
 
-// return (
-//   <ul>
-//     <li>
-//       <Link href="/">Home</Link>
-//     </li>
-//     <li>
-//       <Link href="/about">About Us</Link>
-//     </li>
-//     <li>
-//       <Link href="/blog/hello-world">Blog Post</Link>
-//     </li>
-//   </ul>
-// )
-
-export default LocationsPage
+export default StoresPage

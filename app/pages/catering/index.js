@@ -1,10 +1,11 @@
-import BackToTopButton from '../src/Components/BackToTopButton.js'
-import { useState, useEffect, useRef, useCallback } from 'react'
-import useWindowSize from '../src/utils/useWindowSize.js'
-import React from 'react'
-import Intro from '../src/Components/Intro.js'
+import BackToTopButton from '../../src/Components/BackToTopButton.js'
+import Catering from '../../src/Components/Catering.js'
 
-const App = () => {
+import { useState, useEffect, useRef, useCallback } from 'react'
+import React from 'react'
+import useWindowSize from '../../src/utils/useWindowSize.js'
+
+const CateringPage = () => {
 	const [scrollPosition, setSrollPosition] = useState(() => 0)
 	const [showGoTop, setShowGoTop] = useState('goTopHidden')
 
@@ -33,11 +34,13 @@ const App = () => {
 
 	return (
 		<>
-			<div ref={refScrollUp}> </div>
-			<Intro />
+			<div ref={refScrollUp} />
+			<section className='content'>
+				<Catering />
+			</section>
 			<BackToTopButton showGoTop={showGoTop} scrollUp={handleScrollUp} />
 		</>
 	)
 }
 
-export default App
+export default CateringPage

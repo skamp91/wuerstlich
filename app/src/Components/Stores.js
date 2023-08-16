@@ -3,11 +3,12 @@ import useContentful from '../utils/useContentful'
 import data from '../utils/data'
 import { InView } from 'react-intersection-observer'
 import useWindowSize from '../utils/useWindowSize'
+
 export default function Locations() {
 	const [locations, setLocations] = useState({})
 	const { getLocations } = useContentful()
 	const [bgClass, setBgClass] = useState(false)
-	const { height, width } = useWindowSize()
+	const { width } = useWindowSize()
 
 	useEffect(() => {
 		getLocations().then((res) => setLocations(res.items))
@@ -17,8 +18,8 @@ export default function Locations() {
 
 	return (
 		<>
-			<h1 className='locations-headline'>
-				<span>Unsere Stores</span>
+			<h1 className='locations-headline intro-headline'>
+				<span>5 Standorte voller Genuss.</span>
 			</h1>
 			<div id='locations' className={`locations bg-color-${bgClass}`}>
 				<svg
@@ -54,18 +55,15 @@ export default function Locations() {
 												className={`location ${flexClass}`}
 											>
 												<picture className='location-image'>
-													<div className='location-image__polygon'>
-														<img
-															className='location-image__img'
-															alt=''
-															src={
-																location.fields
-																	.image
-																	.fields.file
-																	.url
-															}
-														/>
-													</div>
+													<img
+														className='location-image__img'
+														alt=''
+														src={
+															location.fields
+																.image.fields
+																.file.url
+														}
+													/>
 												</picture>
 												<div
 													key={
@@ -105,7 +103,6 @@ export default function Locations() {
 															)}
 														</div>
 													</div>
-													{/* <Menu location={location} /> */}
 													<div
 														className={`location-cards ${flexClass}`}
 													>

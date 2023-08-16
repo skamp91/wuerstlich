@@ -1,16 +1,18 @@
 import Head from 'next/head'
 import Header from '../src/Components/Header'
+import Footer from '../src/Components/Footer'
 import React from 'react'
 import '../src/reset.less'
 import '../src/Components/backToTopButton.less'
 import '../src/Components/content.less'
 import '../src/Components/header.less'
-import '../src/Components/location.less'
+import '../src/Components/stores.less'
 import '../src/Components/menu.less'
 import '../src/Components/mobileNavigation.less'
 import '../src/Components/intro.less'
-
-import PropTypes from 'prop-types'
+import '../src/Components/footer.less'
+import '../public/font/Montserrat/fonts/webfonts/Montserrat.css'
+import '../src/Components/catering.less'
 
 export default function MyApp({ Component, pageProps }) {
 	return (
@@ -33,11 +35,8 @@ export default function MyApp({ Component, pageProps }) {
 			</Head>
 			<Header />
 			<Component {...pageProps} />
+			<div className='flame-overlay' />
+			<Footer />
 		</>
 	)
-}
-
-MyApp.PropTypes = {
-	Component: PropTypes.element.isRequired,
-	PageProps: PropTypes.element.isRequired,
 }
