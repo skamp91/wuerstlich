@@ -18,9 +18,9 @@ export default function Locations() {
 
 	return (
 		<>
-			<h1 className='locations-headline intro-headline'>
+			<h2 className='locations-headline intro-headline'>
 				<span>5 Standorte voller Genuss.</span>
-			</h1>
+			</h2>
 			<div id='locations' className={`locations bg-color-${bgClass}`}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'

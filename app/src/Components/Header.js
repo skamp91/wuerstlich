@@ -63,7 +63,7 @@ export default function Header() {
 					<button className='header-button'>Zum Catering</button>
 				</Link>
 			</div>
-			<div className='header-slogan'>
+			<h1 className='header-slogan'>
 				{currentPath === '/' ? (
 					<>
 						<p>{sloganPart1}</p>
@@ -72,7 +72,7 @@ export default function Header() {
 				) : (
 					pageSloganMapping[currentPath] || headerSlogan
 				)}
-			</div>
+			</h1>
 			<MobileNavigation />
 		</header>
 	)

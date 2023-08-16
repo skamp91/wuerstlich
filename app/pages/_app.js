@@ -12,6 +12,7 @@ import '../src/Components/mobileNavigation.less'
 import '../src/Components/intro.less'
 import '../src/Components/footer.less'
 import '../src/Components/catering.less'
+import '../public/font/Montserrat/Montserrat.css'
 
 export default function MyApp({ Component, pageProps }) {
 	return (

@@ -69,9 +69,9 @@ export default function Catering() {
 
 	return (
 		<div className='catering'>
-			<h1 className='locations-headline intro-headline'>
+			<h2 className='locations-headline intro-headline'>
 				<span>Der mobile Gaumenschmaus für euer Event!</span>
-			</h1>
+			</h2>
 			<svg
 				className='locations'
 				xmlns='http://www.w3.org/2000/svg'
