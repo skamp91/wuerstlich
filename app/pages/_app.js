@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '../src/Components/Header'
 import Footer from '../src/Components/Footer'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../src/reset.less'
 import '../src/Components/backToTopButton.less'
 import '../src/Components/content.less'
@@ -14,14 +14,23 @@ import '../src/Components/footer.less'
 import '../src/Components/catering.less'
 import '../public/font/Montserrat/Montserrat.css'
 import { useRouter } from 'next/router'
+import useContentful from '../src/utils/useContentful.js'
 
 export default function MyApp({ Component, pageProps }) {
 	const { pathname } = useRouter()
 	const isHomepage = pathname.split('/')[1] === ''
+	const { getHeader } = useContentful()
 
+	const [isSnowflakesEnabled, setIsSnowflakesEnabled] = useState(false)
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
+
+	useEffect(() => {
+		getHeader().then((res) => {
+			setIsSnowflakesEnabled(res.snowflakesEnabled)
+		})
+	}, [])
 
 	const handleLogin = () => {
 		const validUsername = process.env.USERNAME
@@ -80,6 +89,11 @@ export default function MyApp({ Component, pageProps }) {
 			<Header isHomepage={isHomepage} />
 			<Component {...pageProps} />
 			<div className='flame-overlay' />
+			{isSnowflakesEnabled && (
+				<div className='snowfall'>
+					<div></div>
+				</div>
+			)}
 			<Footer />
 		</>
 	)

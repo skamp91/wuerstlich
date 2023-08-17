@@ -8,6 +8,7 @@ import MobileNavigation from './MobileNavigation.js'
 export default function Header({ isHomepage }) {
 	const [headerUrl, setHeaderUrl] = useState('')
 	const [headerSlogan, setHeaderSlogan] = useState('')
+
 	const { pathname } = useRouter()
 
 	const { getHeader } = useContentful()
