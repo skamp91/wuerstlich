@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Header from '../src/Components/Header'
 import Footer from '../src/Components/Footer'
-import React from 'react'
+import React, { useState } from 'react'
 import '../src/reset.less'
 import '../src/Components/backToTopButton.less'
 import '../src/Components/content.less'
@@ -18,6 +18,46 @@ import { useRouter } from 'next/router'
 export default function MyApp({ Component, pageProps }) {
 	const { pathname } = useRouter()
 	const isHomepage = pathname.split('/')[1] === ''
+
+	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+
+	const handleLogin = () => {
+		const validUsername = process.env.USERNAME
+		const validPassword = process.env.PASSWORD
+
+		if (username === validUsername && password === validPassword) {
+			setIsLoggedIn(true)
+		}
+	}
+
+	if (!isLoggedIn) {
+		return (
+			<div
+				style={{
+					display: 'flex',
+					flexDirection: 'column',
+					alignItems: 'center',
+				}}
+			>
+				<h2>Login</h2>
+				<input
+					type='text'
+					placeholder='Username'
+					value={username}
+					onChange={(e) => setUsername(e.target.value)}
+				/>
+				<input
+					type='password'
+					placeholder='Password'
+					value={password}
+					onChange={(e) => setPassword(e.target.value)}
+				/>
+				<button onClick={handleLogin}>Login</button>
+			</div>
+		)
+	}
 
 	return (
 		<>
