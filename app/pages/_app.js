@@ -13,8 +13,12 @@ import '../src/Components/intro.less'
 import '../src/Components/footer.less'
 import '../src/Components/catering.less'
 import '../public/font/Montserrat/Montserrat.css'
+import { useRouter } from 'next/router'
 
 export default function MyApp({ Component, pageProps }) {
+	const { pathname } = useRouter()
+	const isHomepage = pathname.split('/')[1] === ''
+
 	return (
 		<>
 			<Head>
@@ -33,7 +37,7 @@ export default function MyApp({ Component, pageProps }) {
 				<link rel='manifest' href='/manifest.json' />
 				<title>Würstlich</title>
 			</Head>
-			<Header />
+			<Header isHomepage={isHomepage} />
 			<Component {...pageProps} />
 			<div className='flame-overlay' />
 			<Footer />

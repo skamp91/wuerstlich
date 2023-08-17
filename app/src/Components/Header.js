@@ -5,11 +5,11 @@ import Link from 'next/link'
 import React from 'react'
 import MobileNavigation from './MobileNavigation.js'
 
-export default function Header() {
+export default function Header({ isHomepage }) {
 	const [headerUrl, setHeaderUrl] = useState('')
 	const [headerSlogan, setHeaderSlogan] = useState('')
-	const splittedHeaderSlogan = headerSlogan.split('# ')
-	const router = useRouter()
+	const [isButtonTouched, setIsButtonTouched] = useState(false)
+	const { pathname } = useRouter()
 
 	const { getHeader } = useContentful()
 
@@ -18,7 +18,6 @@ export default function Header() {
 		'/stores': 'Unsere Stores',
 		'/catering': 'Unser Catering',
 	}
-	const currentPath = router.pathname
 
 	const [sloganPart1, sloganPart2] = headerSlogan.split('#')
 
@@ -32,6 +31,14 @@ export default function Header() {
 	function jumpToMenu() {
 		const menu = document.getElementById('locations')
 		menu?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+	}
+
+	function handleTouch(action) {
+		if (action === 'start') {
+			setIsButtonTouched(true)
+		} else if (action === 'end') {
+			setIsButtonTouched(false)
+		}
 	}
 
 	return (
@@ -53,26 +60,38 @@ export default function Header() {
 					<div className='parallax'></div>
 				</picture>
 			)}
-			<div className='header-buttons'>
-				<Link href='/stores' scroll={false}>
-					<button className='header-button' onClick={jumpToMenu}>
-						Zu den Stores
-					</button>
-				</Link>
-				<Link href='/catering' scroll={false}>
-					<button className='header-button'>Zum Catering</button>
-				</Link>
-			</div>
-			<h1 className='header-slogan'>
-				{currentPath === '/' ? (
-					<>
-						<p>{sloganPart1}</p>
-						<p>{sloganPart2}</p>
-					</>
-				) : (
-					pageSloganMapping[currentPath] || headerSlogan
-				)}
-			</h1>
+			{isHomepage ? (
+				<>
+					<div className='header-buttons'>
+						<Link href='/stores' scroll={false}>
+							<button
+								className={`header-button ${
+									isButtonTouched ? 'touched' : ''
+								}`}
+								onTouchStart={() => handleTouch('start')}
+								onTouchEnd={() => handleTouch('end')}
+							>
+								Zu den Stores
+							</button>
+						</Link>
+						<Link href='/catering' scroll={false}>
+							<button className='header-button'>
+								Zum Catering
+							</button>
+						</Link>
+					</div>
+					<h1 className='header-slogan header-slogan-homepage'>
+						<>
+							<p>{sloganPart1}</p>
+							<p>{sloganPart2}</p>
+						</>
+					</h1>
+				</>
+			) : (
+				<h1 className='header-slogan'>
+					{pageSloganMapping[pathname] || headerSlogan}
+				</h1>
+			)}
 			<MobileNavigation />
 		</header>
 	)
