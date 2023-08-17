@@ -69,21 +69,36 @@
 
 	.catering-form-container {
 		background-color: #a72608;
-		padding: 20px;
+		padding: 20px 0;
+
+		.catering-form-wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 0 auto;
+			max-width: 1280px;
+			padding: 20px 0;
+			background-color: #ffba49;
+		}
 	}
 	.catering-form {
 		z-index: 99;
 		position: relative;
 
 		display: grid;
-		max-width: 318px;
+		width: 100%;
+		max-width: 768px;
 		margin: 0 auto;
 
+		&-headline {
+			font-size: 28px;
+			text-shadow: 1px 1px 0px #a72608;
+		}
 		label {
 			display: block;
 			margin-bottom: 3px;
 			font-weight: 400;
-			color: #f7edd6;
+			color: #19231a;
 		}
 
 		input[type='text'],
@@ -103,6 +118,7 @@
 		}
 		textarea {
 			resize: vertical;
+			min-height: 120px;
 		}
 
 		button {

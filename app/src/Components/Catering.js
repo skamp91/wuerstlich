@@ -97,8 +97,7 @@ export default function Catering() {
 					<ul>
 						Lasst uns gemeinsam starten – Füllt einfach das Formular
 						unten aus und wir legen los! Gebt in das
-						Beschreibungsfeld alles ein, was ihr uns mitteilen
-						wollt.
+						Beschreibungsfeld alles ein:
 						<li>Um was für ein Event handelt es sich?</li>
 						<li>Wie viele Leute nehmen ungefähr daran teil?</li>
 						<li>
@@ -128,52 +127,55 @@ export default function Catering() {
 				</div>
 			</div>
 			<div className='catering-form-container'>
-				<form className='catering-form' onSubmit={handleSubmit}>
-					<label htmlFor='name'>Dein Name:</label>
-					<input
-						type='text'
-						id='name'
-						name='name'
-						value={name}
-						onChange={handleNameChange}
-						required
-					/>
-
-					<label htmlFor='email'>Deine Email:</label>
-					<input
-						type='email'
-						id='email'
-						name='email'
-						value={email}
-						onChange={handleEmailChange}
-						required
-					/>
-
-					<label htmlFor='request'>Beschreibung</label>
-					<textarea
-						id='request'
-						name='request'
-						value={request}
-						onChange={handleRequestChange}
-						rows='4'
-						required
-						placeholder='Hier kannst alle Eckdaten und Weiteres zu deinem Event reinschreiben.'
-					></textarea>
-					<label htmlFor='consent'>
+				<div className='catering-form-wrapper'>
+					<h3 className='catering-form-headline'>Anfrageformular</h3>
+					<form className='catering-form' onSubmit={handleSubmit}>
+						<label htmlFor='name'>Dein Name:</label>
 						<input
-							type='checkbox'
-							id='consent'
-							name='consent'
-							checked={consent}
-							onChange={handleConsentChange}
+							type='text'
+							id='name'
+							name='name'
+							value={name}
+							onChange={handleNameChange}
 							required
 						/>
-						<span>Ich stimme der Datenverarbeitung zu.</span>
-					</label>
-					<button className='location-cards-link' type='submit'>
-						Abschicken
-					</button>
-				</form>
+
+						<label htmlFor='email'>Deine Email:</label>
+						<input
+							type='email'
+							id='email'
+							name='email'
+							value={email}
+							onChange={handleEmailChange}
+							required
+						/>
+
+						<label htmlFor='request'>Beschreibung</label>
+						<textarea
+							id='request'
+							name='request'
+							value={request}
+							onChange={handleRequestChange}
+							rows='4'
+							required
+							placeholder='Hier kannst du alle Eckdaten und Weiteres zu deinem Event reinschreiben.'
+						></textarea>
+						<label htmlFor='consent'>
+							<input
+								type='checkbox'
+								id='consent'
+								name='consent'
+								checked={consent}
+								onChange={handleConsentChange}
+								required
+							/>
+							<span>Ich stimme der Datenverarbeitung zu.</span>
+						</label>
+						<button className='location-cards-link' type='submit'>
+							Abschicken
+						</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	)

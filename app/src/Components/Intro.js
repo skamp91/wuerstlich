@@ -1,6 +1,6 @@
 export default function Intro() {
 	return (
-		<section className='intro'>
+		<section id='content' className='intro'>
 			<h1 className='intro-headline locations-headline'>
 				<span>Schlemmen wie die Fürsten bei Würstlich!</span>
 			</h1>

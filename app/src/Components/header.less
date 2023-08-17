@@ -72,7 +72,11 @@
 		align-self: center;
 
 		@media (min-width: 768px) {
+			font-size: 52px;
 			top: 0;
+		}
+		@media (min-width: 1024px) {
+			font-size: 64px;
 		}
 
 		&-homepage {
@@ -104,5 +108,30 @@
 
 	.header-logo {
 		width: 450px;
+	}
+}
+
+.go-to-headline {
+	position: absolute;
+	bottom: 20px;
+	height: 40px;
+	width: 40px;
+	z-index: 108;
+	animation: moveUpDown 0.9s infinite ease-in-out;
+	opacity: 0.8;
+
+	&-upper {
+		bottom: 32px;
+	}
+}
+@keyframes moveUpDown {
+	0% {
+		transform: translateY(0px); /* Initial position */
+	}
+	50% {
+		transform: translateY(8px); /* Final position */
+	}
+	100% {
+		transform: translateY(0px); /* Initial position */
 	}
 }

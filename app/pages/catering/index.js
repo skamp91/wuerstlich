@@ -35,7 +35,7 @@ const CateringPage = () => {
 	return (
 		<>
 			<div ref={refScrollUp} />
-			<section className='content'>
+			<section id='content' className='content'>
 				<Catering />
 			</section>
 			<BackToTopButton showGoTop={showGoTop} scrollUp={handleScrollUp} />

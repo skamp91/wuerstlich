@@ -35,7 +35,7 @@ const StoresPage = () => {
 	return (
 		<>
 			<div ref={refScrollUp} />
-			<section className='content'>
+			<section id='content' className='content'>
 				<Locations />
 			</section>
 
