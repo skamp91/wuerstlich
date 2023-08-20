@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 export default function Catering() {
@@ -95,9 +96,14 @@ export default function Catering() {
 						Catering?
 					</h3>
 					<ul>
-						Lasst uns gemeinsam starten – Füllt einfach das Formular
-						unten aus und wir legen los! Gebt in das
-						Beschreibungsfeld alles ein:
+						<p>
+							Lasst uns gemeinsam starten – Füllt einfach das{' '}
+							<Link href='#catering-form-container'>
+								Formular
+							</Link>{' '}
+							unten aus und wir legen los! Gebt in das
+							Beschreibungsfeld alles ein:
+						</p>
 						<li>Um was für ein Event handelt es sich?</li>
 						<li>Wie viele Leute nehmen ungefähr daran teil?</li>
 						<li>
@@ -126,7 +132,10 @@ export default function Catering() {
 					<p>Würstliche Grüße</p>
 				</div>
 			</div>
-			<div className='catering-form-container'>
+			<div
+				id='catering-form-container'
+				className='catering-form-container'
+			>
 				<div className='catering-form-wrapper'>
 					<h3 className='catering-form-headline'>Anfrageformular</h3>
 					<form className='catering-form' onSubmit={handleSubmit}>

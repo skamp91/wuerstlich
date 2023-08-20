@@ -29,7 +29,19 @@ const useContentful = () => {
 			console.log(err)
 		}
 	}
-	return { getHeader, getLocations }
+
+	const getEvents = async () => {
+		try {
+			const entries = await client.getEntries({
+				content_type: 'event',
+				select: `fields`,
+			})
+			return entries
+		} catch (err) {
+			console.log(err)
+		}
+	}
+	return { getHeader, getLocations, getEvents }
 }
 
 export default useContentful

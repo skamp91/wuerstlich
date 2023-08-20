@@ -3,6 +3,7 @@ import useContentful from '../utils/useContentful'
 import data from '../utils/data'
 import { InView } from 'react-intersection-observer'
 import useWindowSize from '../utils/useWindowSize'
+import Link from 'next/link'
 
 export default function Locations() {
 	const [locations, setLocations] = useState({})
@@ -88,17 +89,41 @@ export default function Locations() {
 																	field,
 																	index
 																) => {
-																	return (
-																		<p
-																			key={
-																				index
-																			}
-																		>
-																			{
-																				field
-																			}
-																		</p>
-																	)
+																	if (
+																		field
+																			.trim()
+																			.startsWith(
+																				'01'
+																			)
+																	) {
+																		return (
+																			<Link
+																				href={`tel:${field}`}
+																			>
+																				<p
+																					key={
+																						index
+																					}
+																				>
+																					{
+																						field
+																					}
+																				</p>
+																			</Link>
+																		)
+																	} else {
+																		return (
+																			<p
+																				key={
+																					index
+																				}
+																			>
+																				{
+																					field
+																				}
+																			</p>
+																		)
+																	}
 																}
 															)}
 														</div>

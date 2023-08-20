@@ -11,7 +11,7 @@ export default function MobileNavigation() {
 	}
 
 	return (
-		<div className='container'>
+		<div className='main-nav-container'>
 			<div className='main-nav-fixed'>
 				<button
 					onClick={handleToggle}

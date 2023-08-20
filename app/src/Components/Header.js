@@ -17,6 +17,7 @@ export default function Header({ isHomepage }) {
 		'/': headerSlogan,
 		'/stores': 'Unsere Stores',
 		'/catering': 'Unser Catering',
+		'/events': 'Unsere Events',
 	}
 
 	const [sloganPart1, sloganPart2] = headerSlogan.split('#')
@@ -49,6 +50,12 @@ export default function Header({ isHomepage }) {
 					>
 						Image by Freepik
 					</a>
+					{/* <img
+						loading='lazy'
+						className='parallax'
+						src={headerUrl}
+						alt='header'
+					/> */}
 					<div className='parallax'></div>
 				</picture>
 			)}

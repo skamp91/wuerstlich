@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Intro() {
 	return (
 		<section id='content' className='intro'>
@@ -25,9 +27,11 @@ export default function Intro() {
 						zu Mittag lecker satt werden?
 					</h3>
 					<p>
-						Dann besucht <strong>W&Uuml;RSTLICH</strong> in
-						Magdeburg, Oschersleben oder Haldensleben.
-						Gem&uuml;tliche H&auml;uschen laden euch in einer
+						Dann besucht W&Uuml;RSTLICH in{' '}
+						<Link href='/stores'>
+							Magdeburg, Oschersleben oder Haldensleben
+						</Link>
+						. Gem&uuml;tliche H&auml;uschen laden euch in einer
 						angenehmen und modernen Atmosph&auml;re zum Schlemmen
 						und Verweilen ein.
 					</p>
@@ -37,7 +41,8 @@ export default function Intro() {
 						selbstgemachtem Kartoffelbrei, ein k&ouml;stliches
 						Wurstgulasch, Soljanka oder ein kr&auml;figer Eintopf
 						mit Bockwurst, versprechen Genuss f&uuml;r den
-						verw&ouml;hnten Gaumen.
+						verw&ouml;hnten Gaumen. <br />
+						<Link href='/stores'>Zu den Speisekarten</Link>
 					</p>
 
 					<p>
@@ -55,9 +60,9 @@ export default function Intro() {
 
 					<p>
 						Um Wartezeiten zu vermeiden, k&ouml;nnt Ihr Eure
-						Lieblingsspeisen telefonisch vorbestellen. Informiert
-						euch dazu am besten auf unserer Website bei den
-						einzelnen Stores.
+						Lieblingsspeisen telefonisch vorbestellen. Die
+						Telefonnummer findet ihr bei den einzelnen{' '}
+						<Link href='/stores'>Stores</Link>.
 						<br />
 						Die Zubereitung dauert je nach Bestellzeitraum zwischen
 						15 bis 30 Minuten.
