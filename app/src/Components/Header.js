@@ -44,12 +44,6 @@ export default function Header({ isHomepage }) {
 					}}
 					className='header-picture'
 				>
-					<a
-						style={{ position: 'absolute' }}
-						href='https://www.freepik.com/free-photo/flat-lay-burger-ingredients-wooden-table_5051915.htm#query=header%20background%20burger&position=46&from_view=search&track=ais'
-					>
-						Image by Freepik
-					</a>
 					{/* <img
 						loading='lazy'
 						className='parallax'

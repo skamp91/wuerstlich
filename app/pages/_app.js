@@ -22,7 +22,7 @@ export default function MyApp({ Component, pageProps }) {
 	const { getHeader } = useContentful()
 
 	const [isSnowflakesEnabled, setIsSnowflakesEnabled] = useState(false)
-	const [isLoggedIn, setIsLoggedIn] = useState(false)
+	const [isLoggedIn, setIsLoggedIn] = useState(true)
 	const [username, setUsername] = useState('')
 	const [password, setPassword] = useState('')
 
@@ -91,7 +91,8 @@ export default function MyApp({ Component, pageProps }) {
 			<div className='flame-overlay' />
 			{isSnowflakesEnabled && (
 				<div className='snowfall'>
-					<div></div>
+					<div className='left' />
+					<div className='right' />
 				</div>
 			)}
 			<Footer />

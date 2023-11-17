@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import useContentful from '../utils/useContentful'
 import data from '../utils/data'
 import { InView } from 'react-intersection-observer'
 import useWindowSize from '../utils/useWindowSize'
 import Link from 'next/link'
+
+import AnimatedText from './AnimatedText'
+import { motion } from 'framer-motion'
 
 export default function Locations() {
 	const [locations, setLocations] = useState({})
@@ -11,17 +14,75 @@ export default function Locations() {
 	const [bgClass, setBgClass] = useState(false)
 	const { width } = useWindowSize()
 
+	const observerRef = useRef(null)
+	const [isInView, setIsInView] = useState(false)
+
+	useEffect(() => {
+		const element = observerRef.current
+
+		if (!element) return
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0]
+				if (entry.isIntersecting) {
+					setIsInView(true)
+					observer.unobserve(element) // Stop observing once it's in view
+				}
+			},
+			{
+				threshold: 0.8, // Trigger when 100% of the element is visible
+			}
+		)
+
+		observer.observe(element)
+
+		return () => {
+			observer.disconnect()
+		}
+	}, [observerRef.current])
+
 	useEffect(() => {
 		getLocations().then((res) => setLocations(res.items))
 	}, [])
 
+	const text = [
+		{ type: 'heading1', text: '5 Standorte' },
+		{
+			type: 'heading2',
+			text: 'Voller Genuss!',
+		},
+	]
+
+	const container = {
+		visible: {
+			transition: {
+				staggerChildren: 0.025,
+			},
+		},
+	}
+
+	useEffect(() => {
+		console.log('Element is in view: ', isInView)
+	}, [isInView])
+
 	if (!locations[0]) return null
 
 	return (
-		<>
-			<h2 className='locations-headline intro-headline'>
-				<span>5 Standorte voller Genuss.</span>
-			</h2>
+		<section>
+			<motion.div
+				className='intro-headline locations-headline'
+				initial='hidden'
+				variants={container}
+				animate={isInView ? 'visible' : 'hidden'}
+				ref={observerRef}
+			>
+				<div className='container'>
+					{text.map((item, index) => {
+						return <AnimatedText {...item} key={index} />
+					})}
+				</div>
+			</motion.div>
 			<div id='locations' className={`locations bg-color-${bgClass}`}>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
@@ -199,6 +260,6 @@ export default function Locations() {
 					<path d='M0 0 C 50 100 80 100 100 0 Z' />
 				</svg>
 			</div>
-		</>
+		</section>
 	)
 }

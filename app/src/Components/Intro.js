@@ -1,11 +1,73 @@
 import Link from 'next/link'
+import AnimatedText from './AnimatedText'
+import { motion } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 export default function Intro() {
+	const ref = useRef(null)
+	const [isInView, setIsInView] = useState(false)
+
+	useEffect(() => {
+		const element = ref.current
+
+		console.log(element)
+		if (!element) return
+
+		const observer = new IntersectionObserver(
+			(entries) => {
+				const entry = entries[0]
+				if (entry.isIntersecting) {
+					setIsInView(true)
+					observer.unobserve(element) // Stop observing once it's in view
+				}
+			},
+			{
+				threshold: 0.8, // Trigger when 100% of the element is visible
+			}
+		)
+
+		observer.observe(element)
+
+		return () => {
+			observer.disconnect()
+		}
+	}, [])
+
+	const text = [
+		{ type: 'heading1', text: 'Schlemmen wie die Fürsten' },
+		{
+			type: 'heading2',
+			text: 'bei Würstlich!',
+		},
+	]
+
+	const container = {
+		visible: {
+			transition: {
+				staggerChildren: 0.025,
+			},
+		},
+	}
+
+	useEffect(() => {
+		console.log('Element is in view: ', isInView)
+	}, [isInView])
+
 	return (
 		<section id='content' className='intro'>
-			<h1 className='intro-headline locations-headline'>
-				<span>Schlemmen wie die Fürsten bei Würstlich!</span>
-			</h1>
+			<motion.div
+				className='intro-headline locations-headline'
+				initial='hidden'
+				variants={container}
+				animate={isInView ? 'visible' : 'hidden'}
+				ref={ref}
+			>
+				<div className='container'>
+					{text.map((item, index) => {
+						return <AnimatedText {...item} key={index} />
+					})}
+				</div>
+			</motion.div>
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
 				version='1.1'
