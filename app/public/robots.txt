@@ -1,3 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://wuerstlich.vercel.app/
+
+# Sitemaps
+Sitemap: https://wuerstlich.vercel.app/sitemap.xml
