@@ -1,54 +1,56 @@
 {
-	"name": "wuerstlich",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"@contentful/rich-text-html-renderer": "^16.1.1",
-		"@contentful/rich-text-react-renderer": "^15.17.1",
-		"@react-pdf/renderer": "^3.1.7",
-		"@sendgrid/mail": "^7.7.0",
-		"@testing-library/jest-dom": "^5.16.5",
-		"@testing-library/react": "^13.4.0",
-		"@testing-library/user-event": "^13.5.0",
-		"classnames": "^2.3.2",
-		"contentful": "^9.3.5",
-		"dotenv": "^16.0.3",
-		"dotenv-webpack": "^8.0.1",
-		"framer-motion": "^10.16.4",
-		"next": "^13.2.3",
-		"next-compose-plugins": "^2.2.1",
-		"next-sitemap": "^4.2.3",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
-		"react-intersection-observer": "^9.4.3",
-		"react-pdf": "^6.2.2",
-		"web-vitals": "^2.1.4"
-	},
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start",
-		"postbuild": "next-sitemap"
-	},
-	"eslintConfig": {
-		"extends": [
-			"react-app",
-			"react-app/jest"
-		]
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"devDependencies": {
-		"next-with-less": "^2.0.5"
-	}
+  "name": "wuerstlich",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@contentful/rich-text-html-renderer": "^16.1.1",
+    "@contentful/rich-text-react-renderer": "^15.17.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-pdf/renderer": "^3.1.7",
+    "@sendgrid/mail": "^7.7.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "classnames": "^2.3.2",
+    "contentful": "^9.3.5",
+    "dotenv": "^16.0.3",
+    "dotenv-webpack": "^8.0.1",
+    "framer-motion": "^10.16.4",
+    "next": "^13.2.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-sitemap": "^4.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.3",
+    "react-pdf": "^6.2.2",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "postbuild": "next-sitemap"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "next-with-less": "^2.0.5"
+  }
 }
